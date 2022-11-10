@@ -1,0 +1,44 @@
+.loginclass{
+   position: absolute;
+   color: white;
+   margin-left: 30px;
+   text-decoration: none;
+   
+}
+.registerclass{
+    position: absolute;
+    color: white;
+    margin-left: 80px;
+    text-decoration: none;
+ }
+.container-fluid{
+
+    background-image: url("https://steamuserimages-a.akamaihd.net/ugc/858351671568552383/EB5B511C833F84C1E6335CCCA1A6D587F9593D58/");
+    margin: 0px;
+    height: 560px;
+}
+.comtxt{
+    color: white;
+    font-weight: bolder;
+    margin-left: 900px;
+    padding-top: 100px;
+}
+.paratext1{
+    color: white;
+    margin-left: 890px;
+}
+.paratext2{
+    color: white;
+    margin-left: 920px;
+}
+.container{
+    margin: 0px;
+}
+.fvicon{
+    padding-left: 20px;
+
+}
+.fvtxt{
+    color: white;
+    font-weight: bold;
+}

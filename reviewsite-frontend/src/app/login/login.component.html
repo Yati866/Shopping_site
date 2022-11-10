@@ -1,0 +1,46 @@
+<a href="#" class="back-button">Back to Home Page</a>
+<!-- Log in  Form -->
+<section class="sign-in">
+    <div class="login-container">
+        <div class="signin-content">
+            <div class="signin-image">
+                <figure><img
+                        src="https://img.freepik.com/free-vector/man-using-face-mask-smartphone-illustration-designs_24877-63608.jpg?size=338&ext=jpg"
+                        alt="login image"></figure>
+                <a href="#" class="signup-image-link" routerLink="/registration">Create an account</a>
+            </div>
+
+            <div class="signin-form">
+                <h2 class="form-title">Login</h2>
+                <form (ngSubmit)="onSubmit()" method="POST" class="register-form" id="login-form">
+                    <div class="form-group">
+                        <label for="Email"><i class="bi bi-person-circle"></i></label>
+                        <input type="text" class="form-input" id="Email" placeholder="Email Id" name="emailId"
+                            [(ngModel)]="credentials.emailId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><i class="bi bi-shield-lock-fill"></i></label>
+                        <input type="password" class="form-input" id="password" placeholder="Password" name="password"
+                            [(ngModel)]="credentials.password" required>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                        <label for="remember-me" class="label-agree-term"><span>Remember me</span></label>
+                    </div>
+                    <div class="form-group form-button">
+                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+                    </div>
+                </form>
+                <div class="social-login">
+                    <span class="social-label">Or login with</span>
+                    <ul class="socials">
+                        <li><a href="#" title="facebook"><i class="display-flex-center bi bi-facebook"></i></a></li>
+                        <li><a href="#" title="twitter"><i class="display-flex-center bi bi-twitter"></i></a></li>
+                        <li><a href="#" title="google"><i class="display-flex-center bi bi-google"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

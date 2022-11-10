@@ -1,0 +1,84 @@
+<nav class="navbar navbar-light bg-dark">
+  <!-- <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)=" getProductListBySearchs()" type="submit">Search</button>
+  </form>  -->
+  <a class="navbar-brand nvtxt" routerLink="/dashboard">Hi,{{user}}</a>
+  <a href="#" *ngIf="loggedIn" (ngSubmit)="logoutUser()" class="btn btn-dark " type="submit">Logout</a>
+</nav>
+
+<div *ngIf="!routeToReview" class="search-container d-flex">
+  <div class="verticalbox">
+    <h4 class="filtxt">Filter Your search</h4>
+    <div class="searchicon">
+      <form #search="ngForm" class="form-inline">
+        <input class="search-field" type="search" name="search" placeholder="Search Product By Brand,Code,Name "
+          aria-label="Search" ngModel>
+        <br>
+        <button class="btn btn-dark my-2 my-sm-0 filter-btn" (click)="getProductListBySearchs(search.value)"
+          type="submit">Filter</button>
+      </form>
+    </div>
+  </div>
+  <!--<button class="btn btn-outline-success my-2 my-sm-0" routerLink="/addReview/:productCode" type="submit">Search</button>
+   -->
+  <div class="product-container col-md-6">
+    <h3 class="weltxt">Welcome to Dashboard</h3>
+    <div class="right-container">
+      <div class="pcontainer d-flex">
+        <div *ngFor="let p of productList" class="wrapper">
+          <div class="product-img">
+            <img src="https://th.bing.com/th/id/OIP.5TbOWXJZpc8ZgQgDpzBDggAAAA?pid=ImgDet&w=167&h=209&c=7&dpr=1.5"
+              height="420" width="327">
+          </div>
+          <div class="product-info">
+            <div class="product-text">
+              <h1>{{p.productName}}</h1>
+              <h2>{{p.brand}}</h2>
+              <p><span>₹ {{p.price}}</span></p>
+            </div>
+            <div class="product-price-btn">
+              <button class="btn1" type="submit" data-bs-toggle="modal" data-bs-target="#ShowReviewModal" (click) = getReviews(p)>Show Reviews</button>
+              <button class="btn2" type="submit" (click)="getProductByCode(p)">Add Review</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="routeToReview">
+  <app-add-review [productData]="proData"> </app-add-review>
+</div>
+
+ <!-- Edit Modal -->
+<div class="modal fade" id="ShowReviewModal" tabindex="-1" aria-labelledby="ShowReviewModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="ShowReviewModalLabel">Product Reviews and Rating</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div *ngFor="let p of reviewArr" class="reviewList">
+          <!-- {{p.reviews}} -->
+          <div class="review-container">
+            <h4>{{p.heading}}</h4>
+            <div class="star-icon d-flex">
+              <i for="rating1" class="bi bi-star-fill"></i>
+              <i for="rating1" class="bi bi-star-fill"></i>
+              <i for="rating1" class="bi bi-star-fill"></i>
+              <i for="rating1" class="bi bi-star-fill"></i>
+              <i for="rating1" class="bi bi-star"></i>
+          </div>
+          <p>Rating : {{p.rating}}</p>
+            <p class="date">{{p.date}}</p>
+          <p class="reviewDetail">{{p.review}} 
+            </p>
+          </div>
+        </div>
+			</div>
+		</div>
+	</div>
+  </div>
